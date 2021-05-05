@@ -25,9 +25,12 @@ namespace CameraApp
                     Title = "Please select a image"
                 });
 
-                var stream = await selectedImage.OpenReadAsync();
+                if (selectedImage != null)
+                {
+                    var stream = await selectedImage.OpenReadAsync();
 
-                PhotoImage.Source = ImageSource.FromStream(() => stream);
+                    PhotoImage.Source = ImageSource.FromStream(() => stream);
+                }
             }
         }
 
@@ -40,9 +43,12 @@ namespace CameraApp
                     Title = "Please click an Image!!"
                 });
 
-                var stream = await CaptureImage.OpenReadAsync();
+                if (CaptureImage != null)
+                {
+                    var stream = await CaptureImage.OpenReadAsync();
 
-                PhotoImage.Source = ImageSource.FromStream(() => stream);
+                    PhotoImage.Source = ImageSource.FromStream(() => stream);
+                }
             }
         }
     }
