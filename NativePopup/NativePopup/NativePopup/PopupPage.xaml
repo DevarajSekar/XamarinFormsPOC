@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pop:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pop="http://xamarin.com/schemas/2020/toolkit"
+             Size="300,300"
+             x:Class="NativePopup.MyPopupPage">
+    <StackLayout>
+        <Label Text="Popup from Xamarin.Community.Toolkit" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Click to close me!!" Clicked="Button_Clicked"/>
+    </StackLayout>
+</pop:Popup>
