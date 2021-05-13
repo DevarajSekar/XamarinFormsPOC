@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DragAndDrop.MainPage">
+    
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Drag and Drop Sample!" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+            </Frame>
+            <Label Text="Drag the text to drop in the box!!"/>
+            <Label Text="DRAG AND DROP IN THE BOX" TextColor="Black" FontSize="24">
+                <Label.GestureRecognizers>
+                    <DragGestureRecognizer CanDrag="True" DragStarting="DragGestureRecognizer_DragStarting"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Drop anything in the box!!"/>
+            <Frame Padding="20" HeightRequest="300" Margin="20" HasShadow="True" CornerRadius="5">
+                <Frame.GestureRecognizers>
+                    <DropGestureRecognizer AllowDrop="True" Drop="DropGestureRecognizer_Drop"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Label Text="Drag Image to drop"/>
+            <Image Source="logo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image.GestureRecognizers>
+                    <DragGestureRecognizer CanDrag="True" DragStarting="DragGestureRecognizer_DragStarting_1"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
