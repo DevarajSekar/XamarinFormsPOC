@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="PanCakeView.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="PanCakeView Sample!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <pancake:PancakeView  BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0"
+             BackgroundColor="DodgerBlue"
+            Margin="40"
+            CornerRadius="10,0,10,0">
+            <pancake:PancakeView.Border>
+                <pancake:Border Color="DarkBlue" Thickness="3" DrawingStyle="Outside"/>
+            </pancake:PancakeView.Border>
+
+            <pancake:PancakeView.BackgroundGradientStops>
+                <pancake:GradientStopCollection>
+                    <pancake:GradientStop Color="#FF0000" Offset="0" />
+                    <pancake:GradientStop Color="#00FF00" Offset="0.5" />
+                    <pancake:GradientStop Color="#0000FF" Offset="1" />
+                </pancake:GradientStopCollection>
+            </pancake:PancakeView.BackgroundGradientStops>
+            
+            <Label Text="Text is placed inside the pan cake view"
+                   FontSize="Title" 
+                   Padding="30,10,30,10"/>
+        </pancake:PancakeView>
+
+        <pancake:PancakeView
+             BackgroundColor="DodgerBlue"
+            Margin="40"
+            CornerRadius="10,0,10,0">
+            <pancake:PancakeView.Border>
+                <pancake:Border Color="DarkBlue" Thickness="6" DrawingStyle="Inside" DashPattern="15,5,15,5"/>
+            </pancake:PancakeView.Border>
+
+            <Label Text="Text is placed inside the pan cake view"
+                   FontSize="Title" 
+                   Padding="30,10,30,10"/>
+        </pancake:PancakeView>
+
+        <pancake:PancakeView OffsetAngle="45" Sides="6" BackgroundColor="DodgerBlue" WidthRequest="300" HeightRequest="300">
+            <pancake:PancakeView.BackgroundGradientStops>
+                <pancake:GradientStopCollection>
+                    <pancake:GradientStop Color="#FF0000" Offset="0" />
+                    <pancake:GradientStop Color="#00FF00" Offset="0.5" />
+                    <pancake:GradientStop Color="#0000FF" Offset="1" />
+                </pancake:GradientStopCollection>
+            </pancake:PancakeView.BackgroundGradientStops>
+
+            <pancake:PancakeView.Border>
+                <pancake:Border Color="DarkBlue" Thickness="6" DrawingStyle="Inside" DashPattern="15,5,15,5"/>
+            </pancake:PancakeView.Border>
+            
+            <Label Text="This is just a happy little label." TextColor="Black" FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+        </pancake:PancakeView>
+
+    </StackLayout>
+
+</ContentPage>
