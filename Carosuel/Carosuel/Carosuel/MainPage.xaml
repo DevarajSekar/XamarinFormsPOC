@@ -9,23 +9,29 @@
         <local:ModelClass/>
     </ContentPage.BindingContext>
 
-    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
+    <StackLayout VerticalOptions="FillAndExpand">
 
-        <Frame BackgroundColor="DodgerBlue">
+        <!--<Frame BackgroundColor="DodgerBlue">
             <Label Text="Carousel Sample!" 
                    FontAttributes="Italic" 
                    FontSize="36" 
                    HorizontalTextAlignment="Center"
                    TextColor="WhiteSmoke"/>
-        </Frame>
+        </Frame>--> 
         <CarouselView x:Name="carouselView" 
-                      CurrentItemChanged="carouselView_CurrentItemChanged"
                       CurrentItemChangedCommand="{Binding ColorCommand}"
                       CurrentItemChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=CurrentItem}"
                   ItemsSource="{Binding Details}">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <ImageButton Source="info.png" 
+                               HeightRequest="50" 
+                               WidthRequest="50"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="End" 
+                               Clicked="ImageButton_Clicked"/>
+
                         <Frame HasShadow="True"
                                BorderColor="Gray"
                                CornerRadius="5"
@@ -36,13 +42,13 @@
                             <SwipeView>
                                 <SwipeView.TopItems>
                                     <SwipeItems>
-                                        <SwipeItem Text="Add to Favorite"
+                                        <SwipeItem Text="Add to Favorite" Clicked="SwipeItem_Clicked"
                                                    BackgroundColor="#16719e" />
                                     </SwipeItems>
                                 </SwipeView.TopItems>
                                 <SwipeView.BottomItems>
                                     <SwipeItems>
-                                        <SwipeItem Text="Remove from favorite"
+                                        <SwipeItem Text="Remove from favorite" Clicked="SwipeItem_Clicked_1"
                                                    BackgroundColor="#fc9574"
                                                    />
                                     </SwipeItems>
@@ -50,7 +56,7 @@
                                 <StackLayout>
                                     <Label Text="{Binding Name}" 
                                            FontSize="Large"
-                                           FontAttributes="Italic"
+                                           FontAttributes="Bold"
                                            HorizontalOptions="Center"
                                            VerticalOptions="Center" />
                                     <Image Source="{Binding ImageName}" VerticalOptions="FillAndExpand"/>
@@ -58,7 +64,8 @@
                             </SwipeView>
                         </Frame>
 
-                        <Label Text="Touch &amp; Swipe Any direct on the Image! Any Direction" TextColor="White" 
+                        <Label Text="Touch &amp; Swipe Any direct on the Image! Any Direction" 
+                               TextColor="White" 
                                VerticalTextAlignment="Center"
                                FontSize="Small"
                                FontAttributes="Italic"
