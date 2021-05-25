@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Behaviors.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:Behaviors">
+
+    <ContentPage.BindingContext>
+        <local:ModelClass/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="BaseStyle">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkGray"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+
+            </Style>
+
+            <Style TargetType="Label" x:Key="NewColor" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="TextColor" Value="Orange" />
+                <Setter Property="FontSize" Value="26" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Behaviors Sample!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Button Text="Tap to change count using Button" 
+                BackgroundColor="DarkGray" 
+                CornerRadius="10"
+                Margin="50"
+                TextColor="LightGray">
+            <Button.Behaviors>
+                <xct:EventToCommandBehavior EventName="Clicked" 
+                                            Command="{Binding ControlCommand}" 
+                                            CommandParameter="Button"/>
+            </Button.Behaviors>
+        </Button>
+
+        <Label Text="Tap to Change Count using Label" 
+               Style="{StaticResource BaseStyle}"
+               HorizontalTextAlignment="Center"
+               Margin="20">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer 
+                    Command="{Binding ControlCommand}" 
+                    CommandParameter="Label"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Grid>
+            <Label Grid.Column="0" 
+                   Style="{StaticResource BaseStyle}"
+                   Text="Tap count : "/>
+
+            <Label Grid.Column="1"
+                   Style="{StaticResource NewColor}"
+                   Text="{Binding Count}"/>
+        </Grid>
+
+        <Frame Margin="50" CornerRadius="10" HeightRequest="200" BackgroundColor="DarkGray">
+            <Grid>
+            <Label Text="Tapped using" Grid.Row="0"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start"
+                   TextColor="LightGray"
+                   Style="{StaticResource BaseStyle}"/>
+
+                <Label Text="{Binding Item}" Grid.Row="1"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Center"
+                   TextColor="LightGray"
+                   Style="{StaticResource BaseStyle}"/>
+            </Grid>
+        </Frame>
+        
+    </StackLayout>
+
+</ContentPage>
