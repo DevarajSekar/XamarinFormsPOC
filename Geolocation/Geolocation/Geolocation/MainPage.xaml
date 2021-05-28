@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Geolocation.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Geolocation Sample!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Button Text="Tap to know your location co-ordinates" 
+                HorizontalOptions="Center" 
+                FontAttributes="Bold"
+                Clicked="Button_Clicked"/>
+
+        <Frame Margin="30" BackgroundColor="LightGray" CornerRadius="5" HeightRequest="150">
+            <StackLayout>
+                <Label Text="Coordinates:" HorizontalOptions="Start"/>
+                <Label x:Name="locName" FontAttributes="Bold"/>
+            </StackLayout>
+        </Frame>
+
+        <StackLayout x:Name="stack" IsVisible="false">
+            <Label Text="Tap to open your location in maps" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <ImageButton Source="maps.png" HorizontalOptions="Center"
+                     WidthRequest="150" HeightRequest="150"
+                     BackgroundColor="Transparent"
+                Clicked="Button_Clicked_1"/>
+        </StackLayout>
+        
+        
+
+    </StackLayout>
+
+</ContentPage>
