@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Preference.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Perference Sample!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Frame Margin="20" CornerRadius="10" HeightRequest="100">
+            <Entry Margin="10" x:Name="entry" Placeholder="Enter text to save!"/>
+        </Frame>
+
+        <Button Text="Save Data" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+        <Button Text="Clear saved Data" HorizontalOptions="Center" Clicked="Button_Clicked_1"/>
+
+        <Frame Margin="20,20,20,70" VerticalOptions="EndAndExpand" CornerRadius="10">
+            <StackLayout>
+                <Label Text="Application behavior:" FontAttributes="Bold"/>
+                <Label Text="Enter some text and click save data option to save it for the first time and then close the application, again open the application the data entered previously will be preserved!!"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
