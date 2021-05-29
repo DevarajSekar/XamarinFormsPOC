@@ -4,5 +4,6 @@
     <SelectedDevice>Xiaomi Redmi Note 6 Pro</SelectedDevice>
     <ActiveDebugProfile>Xiaomi Redmi Note 6 Pro</ActiveDebugProfile>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
+    <DefaultDevice>Android_9_API_28</DefaultDevice>
   </PropertyGroup>
 </Project>

@@ -13,11 +13,23 @@
                 FontAttributes="Bold"
                 Clicked="Button_Clicked"/>
 
-        <Frame Margin="30" BackgroundColor="LightGray" CornerRadius="5" HeightRequest="150">
-            <StackLayout>
-                <Label Text="Coordinates:" HorizontalOptions="Start"/>
-                <Label x:Name="locName" FontAttributes="Bold"/>
-            </StackLayout>
+        <Frame Margin="30" BackgroundColor="LightGray" CornerRadius="5">
+            <Grid>
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Coordinates:" HorizontalOptions="Start"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Latitute: " FontAttributes="Bold"/>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="lat" FontAttributes="Bold"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Longitute: " FontAttributes="Bold"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="longi" FontAttributes="Bold"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="Altitude: " FontAttributes="Bold"/>
+                <Label Grid.Row="3" Grid.Column="1" x:Name="alt" FontAttributes="Bold"/>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="30,0,30,30" BackgroundColor="LightGray" CornerRadius="5">
+            <Grid>
+                <Label Grid.Column="0" Text="Location: " FontAttributes="Bold"/>
+                <Label Grid.Column="1" x:Name="loc" FontAttributes="Bold"/>
+            </Grid>
         </Frame>
 
         <StackLayout x:Name="stack" IsVisible="false">
