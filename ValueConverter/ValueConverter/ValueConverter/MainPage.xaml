@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ValueConverter.MainPage"
+             xmlns:local="clr-namespace:ValueConverter">
+
+    <ContentPage.Resources>
+        <local:ColorConverter x:Key="CustomColorConverter"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <local:ModelClass/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Value Converter!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Value Converter sample" TextColor="{Binding Color,Converter={StaticResource CustomColorConverter}}" FontSize="Title" Padding="30,10,30,10"/>
+
+        <ListView ItemsSource="{Binding MyList}"  SelectionMode="None" SeparatorColor="Transparent" RowHeight="100" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="10" CornerRadius="10" VerticalOptions="FillAndExpand" BackgroundColor="{Binding MyGender, Converter={StaticResource CustomColorConverter}}">
+                            <Label Text="{Binding Name}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+
+</ContentPage>
