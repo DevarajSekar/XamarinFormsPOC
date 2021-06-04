@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DContacts.MainPage"
+             xmlns:local="clr-namespace:DContacts">
+
+    <ContentPage.BindingContext>
+        <local:ContactCollection/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="poppinsBold"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="DarkTurquoise" HeightRequest="50" Padding="0" CornerRadius="0">
+            <Label Text="Favorite Contacts" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                   Margin="10,0,0,0" FontSize="26"/>
+        </Frame>
+        <ListView x:Name="listView" ItemsSource="{Binding ContactList}" 
+                  SelectionMode="None" 
+                  SeparatorVisibility="None" 
+                  RowHeight="100"
+                  ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="WhiteSmoke" 
+                               Padding="10"
+                               Margin="10" 
+                               CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Grid.Column="0"
+                                       Margin="10,0,0,0"
+                                   CornerRadius="100"
+                                   BackgroundColor="WhiteSmoke">
+                                    <Label Text="{Binding PrefixName}" 
+                                           VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="Gray"/>
+                                </Frame>
+
+                                <Grid Grid.Column="1">
+                                    <Label Text="{Binding Name}" Grid.Row="0" FontSize="20" 
+                                           HorizontalTextAlignment="Start" Margin="20,0,0,0"
+                                           TextColor="Gray"/>
+                                    <Label Text="{Binding Number}" FontSize="10" 
+                                           Grid.Row="1" Margin="20,0,0,0"
+                                           HorizontalTextAlignment="Start" 
+                                           TextColor="DarkTurquoise"/>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame HorizontalOptions="End" Margin="0,0,10,10" 
+               WidthRequest="30" 
+               HeightRequest="30" 
+               CornerRadius="70" BackgroundColor="MediumTurquoise">
+            <Label Text="ADD" FontSize="12" VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding AddCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
