@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageBarcode.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+            <Label Text="Image Barcode Reader" HorizontalTextAlignment="Center" TextColor="White" FontSize="32"/>
+        </Frame>
+
+        <Button Text="Tap to select image" VerticalOptions="Start" CornerRadius="15"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="Button_Clicked"/>
+
+        <Frame Margin="20" VerticalOptions="StartAndExpand"
+               CornerRadius="15"
+               HeightRequest="200"
+               BackgroundColor="LightGray">
+            <Label VerticalOptions="FillAndExpand" x:Name="label" Text="Barcode Value"
+                   TextColor="Gray"/>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
