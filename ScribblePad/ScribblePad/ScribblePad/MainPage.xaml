@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScribblePad.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="50"/>
+            <Setter Property="HeightRequest" Value="50"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Scribble Pad!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <StackLayout VerticalOptions="FillAndExpand" x:Name="parent1">
+            <xct:DrawingView 
+                x:Name="drawingPad" 
+                VerticalOptions="FillAndExpand" 
+                LineWidth="15" 
+                BackgroundColor="WhiteSmoke"
+                 ClearOnFinish="False"/>
+        </StackLayout>
+        
+        <StackLayout HeightRequest="50" Margin="0,0,0,20" Orientation="Horizontal">
+            <Button BackgroundColor="Violet" x:Name="b1" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="Indigo" x:Name="b2" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="Blue" x:Name="b3" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="LightSeaGreen" x:Name="b4" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="Yellow" x:Name="b5" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="Orange" x:Name="b6" Clicked="b1_Clicked"/>
+            <Button BackgroundColor="Red" x:Name="b7" Clicked="b1_Clicked"/>
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
