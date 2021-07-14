@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:iBarcodeReader"
+             xmlns:zclear="clr-namespace:ZXing.Common;assembly=zxing"
+             xmlns:zing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="iBarcodeReader.Page3">
+
+    <ContentPage.BindingContext>
+        <local:ModelClass/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Barcode Generator!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+
+            <Label Text="Enter Barcode Value" VerticalTextAlignment="Center" 
+               HorizontalTextAlignment="Center"/>
+
+            <Entry Placeholder="Enter value to generate Barcode !" 
+               x:Name="entry" Margin="30"/>
+
+            <Frame HeightRequest="200" WidthRequest="200" Margin="20" BackgroundColor="LightGray">
+                <zing:ZXingBarcodeImageView BindingContext="{x:Reference entry}" BarcodeValue="{Binding Text}">
+                    <zing:ZXingBarcodeImageView.BarcodeOptions>
+                        <zclear:EncodingOptions Width="200" Height="200"/>
+                    </zing:ZXingBarcodeImageView.BarcodeOptions>
+                </zing:ZXingBarcodeImageView>
+            </Frame>
+
+            <Button Text="Create New Barcode" VerticalOptions="Center"
+                 HorizontalOptions="Center" 
+                Command="{Binding NewCommand}" CommandParameter="{x:Reference entry}"
+                 />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

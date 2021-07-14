@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iBarcodeReader.Page1"
+             xmlns:zing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Barcode Scanner!" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
+            </Frame>
+
+
+            <Frame HeightRequest="300" Margin="20,0,20,0" 
+               Padding="10" 
+               BackgroundColor="DarkGray">
+                <zing:ZXingScannerView x:Name="scanner" OnScanResult="ZXingScannerView_OnScanResult"/>
+            </Frame>
+
+            <Frame HeightRequest="200" CornerRadius="20" Margin="20,0,20,0" BackgroundColor="LightGray">
+                <StackLayout>
+                    <Label Text="Scan Result:" Grid.Row="0"/>
+                    <Label x:Name="resultLabel" Grid.Row="1"/>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="Tap to scan any Barcode" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+
+        </StackLayout>              
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iBarcodeReader.MainPage"
+             BackgroundColor="WhiteSmoke">
+
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="BackgroundColor" Value="DodgerBlue"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="customFont"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame>
+            <Grid>
+                <Image Source="bar.png" Grid.Column="0"/>
+                <Label Text="Barcode Scanner" Grid.Column="1"/>
+            </Grid>
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Image Source="bar.png" Grid.Column="0"/>
+                <Label Text="Image Scanner" Margin="0,0,20,0" Grid.Column="1"/>
+            </Grid>
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Image Source="bar.png" Grid.Column="0"/>
+                <Label Text="Barcode Creator" Grid.Column="1" Margin="0,0,20,0"/>
+            </Grid>
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
