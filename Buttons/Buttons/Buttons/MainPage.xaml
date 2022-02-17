@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Buttons.MainPage"
+             BackgroundColor="White">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Grid RowDefinitions="*,*,*" VerticalOptions="FillAndExpand">
+            <Grid Grid.Row="0">
+            </Grid>
+
+           
+                <Frame x:Name="centerFrame" VerticalOptions="Center" 
+                       Grid.Row="1" 
+                       HasShadow="True"
+                       HorizontalOptions="Center" 
+                       WidthRequest="50" 
+                       HeightRequest="50"
+                       CornerRadius="50"
+                       BackgroundColor="#f2f2f2">
+
+                <Image x:Name="centerbutton">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Frame>
+            
+
+            <Grid Grid.Row="2">
+            </Grid>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
